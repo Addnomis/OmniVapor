@@ -151,7 +151,7 @@ const App: React.FC = () => {
           throw new Error(`Failed to load project data: ${response.status}`);
         }
         const data: Project[] = await response.json();
-        // Add 360° images to projects for tour system testing
+        // Add random 360° images to all projects
         const projectsWith360Images = add360ImagesToProjects(data);
         setProjects(projectsWith360Images);
       } catch (err) {
