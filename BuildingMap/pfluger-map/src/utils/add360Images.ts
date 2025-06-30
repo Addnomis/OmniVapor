@@ -30,9 +30,8 @@ export const add360ImagesToProjects = (projects: Project[]): Project[] => {
           metadata: {
             width: 4096,
             height: 2048,
-            fieldOfView: 360,
-            projection: 'equirectangular' as const,
-            optimizedForDome: true
+            fov: 360,
+            projection: 'equirectangular' as const
           }
         },
         preferredViewAngle: {
@@ -40,39 +39,8 @@ export const add360ImagesToProjects = (projects: Project[]): Project[] => {
           elevation: Math.random() * 30 - 15, // -15 to +15 degrees
           distance: 0.8
         },
-        interactionZones: [
-          {
-            position: {
-              azimuth: Math.random() * 360,
-              elevation: Math.random() * 20 - 10,
-              distance: 0.9
-            },
-            radius: 0.1,
-            action: 'highlight',
-            description: `Key feature of ${project.name}`
-          }
-        ],
-        tourWaypoints: [
-          {
-            azimuth: 0,
-            elevation: 0,
-            distance: 0.8
-          },
-          {
-            azimuth: 90,
-            elevation: 10,
-            distance: 0.8
-          },
-          {
-            azimuth: 180,
-            elevation: 5,
-            distance: 0.8
-          }
-        ],
         immersiveFeatures: {
-          supports360View: true,
-          supportsVirtualTour: true,
-          hasInteractiveElements: true
+          supports360View: true
         }
       }
     };

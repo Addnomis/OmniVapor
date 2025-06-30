@@ -67,14 +67,14 @@ const ErrorDescription = styled.p`
 `;
 
 const Header = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background: rgba(26, 26, 26, 0.95);
   backdrop-filter: blur(10px);
   padding: 16px 0;
-  z-index: 1001;
+  z-index: 9999;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
@@ -100,8 +100,6 @@ const Subtitle = styled.p`
   color: #B22222;
   font-weight: 500;
 `;
-
-
 
 const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -131,10 +129,6 @@ const App: React.FC = () => {
 
     loadProjects();
   }, []);
-
-
-
-
 
   const handleEnterImmersiveMode = (project: Project) => {
     console.log('🌐 Entering 360° view for:', project.name);

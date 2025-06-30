@@ -124,30 +124,6 @@ const InfoText = styled.p`
   line-height: 1.4;
 `;
 
-const DebugConsole = styled.div`
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #00ff00;
-  padding: 12px;
-  border-radius: 8px;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
-  max-width: 400px;
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid #333;
-  z-index: 5;
-`;
-
-const DebugLine = styled.div`
-  margin: 2px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
 const ControlsOverlay = styled.div`
   position: absolute;
   bottom: 20px;
@@ -172,20 +148,18 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  const [debugLogs, setDebugLogs] = useState<string[]>([]);
   const [loadStartTime, setLoadStartTime] = useState<number>(0);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Mouse interaction state
   const mouseRef = useRef({ x: 0, y: 0, isDown: false });
-  const rotationRef = useRef({ x: 0, y: 0 });
-
-  const addDebugLog = useCallback((message: string) => {
-    const timestamp = new Date().toLocaleTimeString();
-    const logMessage = `[${timestamp}] ${message}`;
-    setDebugLogs(prev => [...prev.slice(-10), logMessage]);
-    console.log('360° Viewer Debug:', logMessage);
-  }, []);
+  
+  // Spherical coordinates for natural head movement (no tilting)
+  const sphericalRef = useRef({ 
+    azimuth: 0,    // Horizontal rotation (left/right)
+    elevation: 0,  // Vertical rotation (up/down)
+    radius: 1      // Distance (not used for camera, but kept for completeness)
+  });
 
   const simulateProgress = () => {
     const interval = setInterval(() => {
@@ -202,15 +176,20 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
 
   const initThreeJS = useCallback(() => {
     if (!mountRef.current) {
-      addDebugLog('ERROR: mountRef.current is null');
       return;
     }
 
-    addDebugLog('Initializing Three.js WebGL renderer');
-    addDebugLog(`Container size: ${mountRef.current.clientWidth}x${mountRef.current.clientHeight}`);
+    // Check WebGL support
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+      setError('WebGL is not supported by your browser');
+      return;
+    }
 
     // Scene
     const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x222222); // Dark gray background
     sceneRef.current = scene;
 
     // Camera
@@ -224,23 +203,54 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
     cameraRef.current = camera;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setClearColor(0x0f0f0f);
-    rendererRef.current = renderer;
+    try {
+      const renderer = new THREE.WebGLRenderer({ 
+        antialias: true,
+        alpha: false,
+        preserveDrawingBuffer: false
+      });
+      renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
+      renderer.setClearColor(0x0f0f0f);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      rendererRef.current = renderer;
 
-    mountRef.current.appendChild(renderer.domElement);
+      mountRef.current.appendChild(renderer.domElement);
 
-    addDebugLog(`WebGL context: ${renderer.getContext().constructor.name}`);
-    addDebugLog('Three.js scene initialized successfully');
-    setIsInitialized(true);
-  }, [addDebugLog]);
+      setIsInitialized(true);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown WebGL error';
+      setError(`WebGL initialization failed: ${errorMessage}`);
+    }
+  }, []);
+
+  const startRenderLoop = useCallback(() => {
+    const animate = () => {
+      frameRef.current = requestAnimationFrame(animate);
+      
+      if (cameraRef.current && rendererRef.current && sceneRef.current) {
+        // Convert spherical coordinates to proper camera orientation
+        // This prevents gimbal lock and creates natural head movement
+        
+        // Reset camera rotation to avoid accumulation
+        cameraRef.current.rotation.set(0, 0, 0);
+        
+        // Apply rotations in the correct order for natural head movement
+        // 1. First rotate around Y-axis (horizontal/azimuth - left/right)
+        cameraRef.current.rotateY(sphericalRef.current.azimuth);
+        
+        // 2. Then rotate around X-axis (vertical/elevation - up/down)
+        // This is done in the camera's local space, so it stays level
+        cameraRef.current.rotateX(sphericalRef.current.elevation);
+        
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
+      }
+    };
+    animate();
+  }, []);
 
   const createSphere = useCallback((texture: THREE.Texture) => {
     if (!sceneRef.current) return;
-
-    addDebugLog('Creating sphere geometry with UV mapping');
 
     // Create sphere geometry (similar to OmniMap's sphere creation)
     // Higher segments = smoother sphere, but more performance cost
@@ -250,41 +260,25 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
       40   // height segments (latitude divisions)
     );
 
-    // Flip the geometry inside-out so we see the texture from inside
-    geometry.scale(-1, 1, 1);
-
+    // Flip the geometry inside-out and fix orientation for equirectangular images
+    geometry.scale(-1, 1, 1); // Flip X to see from inside
+    
     // Create material with the equirectangular texture
+    // Use MeshBasicMaterial which doesn't need lighting
     const material = new THREE.MeshBasicMaterial({
       map: texture,
-      side: THREE.BackSide // Render inside faces
+      side: THREE.DoubleSide, // Render both sides to be safe
+      transparent: false,
+      opacity: 1.0
     });
 
     // Create mesh
     const sphere = new THREE.Mesh(geometry, material);
     sphereRef.current = sphere;
     sceneRef.current.add(sphere);
-
-    addDebugLog(`Sphere created: ${geometry.attributes.position.count} vertices`);
-    }, [addDebugLog]);
-
-  const startRenderLoop = useCallback(() => {
-    const animate = () => {
-      frameRef.current = requestAnimationFrame(animate);
-      
-      if (cameraRef.current && rendererRef.current && sceneRef.current) {
-        // Apply rotation based on mouse interaction
-        cameraRef.current.rotation.x = rotationRef.current.x;
-        cameraRef.current.rotation.y = rotationRef.current.y;
-        
-        rendererRef.current.render(sceneRef.current, cameraRef.current);
-      }
-    };
-    animate();
-    addDebugLog('Render loop started');
-  }, [addDebugLog]);
+  }, []);
 
   const loadTexture = useCallback(() => {
-    addDebugLog(`Loading equirectangular texture: ${imageUrl}`);
     setLoadStartTime(Date.now());
     
     const progressInterval = simulateProgress();
@@ -295,42 +289,41 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
       imageUrl,
       // onLoad
       (texture: THREE.Texture) => {
-        const loadTime = Date.now() - loadStartTime;
-        addDebugLog(`Texture loaded successfully in ${loadTime}ms`);
-        addDebugLog(`Texture size: ${texture.image.width}x${texture.image.height}`);
-        
         // Configure texture for equirectangular mapping
         texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.ClampToEdgeWrapping;
         texture.minFilter = THREE.LinearFilter;
         texture.magFilter = THREE.LinearFilter;
+        texture.flipY = true; // Flip Y to fix upside down images
+        texture.colorSpace = THREE.SRGBColorSpace; // Proper color space
         
+        clearInterval(progressInterval);
         setProgress(100);
+        
+        // Small delay to show 100% progress
         setTimeout(() => {
           createSphere(texture);
           setLoading(false);
           startRenderLoop();
-        }, 300);
+        }, 500);
       },
       // onProgress
       (progressEvent: ProgressEvent) => {
         if (progressEvent.lengthComputable) {
           const percentComplete = (progressEvent.loaded / progressEvent.total) * 100;
           setProgress(Math.min(percentComplete, 95));
-          addDebugLog(`Loading progress: ${Math.round(percentComplete)}%`);
+        } else {
+          // For large files without content-length header
         }
       },
       // onError
       (error: unknown) => {
         clearInterval(progressInterval);
-        const loadTime = Date.now() - loadStartTime;
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
-        addDebugLog(`Texture load failed after ${loadTime}ms: ${errorMessage}`);
-        setLoading(false);
-        setError(`Failed to load 360° texture: ${imageUrl}`);
+        setError(`Failed to load 360° texture. Check browser console for details. (${errorMessage})`);
       }
     );
-  }, [imageUrl, addDebugLog, loadStartTime, createSphere, startRenderLoop]);
+  }, [imageUrl, createSphere, startRenderLoop]);
 
   const handleMouseDown = (event: React.MouseEvent) => {
     mouseRef.current.isDown = true;
@@ -345,11 +338,11 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
     const deltaY = event.clientY - mouseRef.current.y;
 
     // Update rotation (inverted for natural feel)
-    rotationRef.current.y -= deltaX * 0.005;
-    rotationRef.current.x -= deltaY * 0.005;
+    sphericalRef.current.azimuth -= deltaX * 0.005;
+    sphericalRef.current.elevation -= deltaY * 0.005;
 
     // Clamp vertical rotation
-    rotationRef.current.x = Math.max(-Math.PI/2, Math.min(Math.PI/2, rotationRef.current.x));
+    sphericalRef.current.elevation = Math.max(-Math.PI/2, Math.min(Math.PI/2, sphericalRef.current.elevation));
 
     mouseRef.current.x = event.clientX;
     mouseRef.current.y = event.clientY;
@@ -377,11 +370,9 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
     cameraRef.current.aspect = width / height;
     cameraRef.current.updateProjectionMatrix();
     rendererRef.current.setSize(width, height);
-    
-    addDebugLog(`Viewport resized: ${width}x${height}`);
-  }, [addDebugLog]);
+  }, []);
 
-    useEffect(() => {
+  useEffect(() => {
     initThreeJS();
     
     // Add resize listener
@@ -390,7 +381,6 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
     // Add escape key listener
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        addDebugLog('Escape key pressed - exiting 360° view');
         onBack();
       }
     };
@@ -411,7 +401,7 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [initThreeJS, handleResize, onBack, addDebugLog]);
+  }, [initThreeJS, handleResize, onBack]);
 
   useEffect(() => {
     if (isInitialized && imageUrl) {
@@ -476,15 +466,6 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
           </ControlsOverlay>
         </>
       )}
-      
-      <DebugConsole>
-        <div style={{ color: '#B22222', marginBottom: '8px', fontWeight: 'bold' }}>
-          🔧 WebGL Debug Console
-        </div>
-        {debugLogs.map((log, index) => (
-          <DebugLine key={index}>{log}</DebugLine>
-        ))}
-      </DebugConsole>
     </ViewerContainer>
   );
 };

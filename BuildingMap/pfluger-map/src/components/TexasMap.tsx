@@ -21,18 +21,18 @@ const MapWrapper = styled.div`
 `;
 
 const LeftSidebar = styled.div`
-  width: 320px;
+  width: 280px;
   height: 100vh;
   background: #1a1a1a;
   border-right: 1px solid #333;
   box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
-  padding: 20px;
+  padding: 16px;
   overflow-y: auto;
   z-index: 1000;
   order: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 `;
 
 const RightSidePanel = styled.div<{ isOpen: boolean }>`
@@ -67,28 +67,28 @@ const FilterPanel = styled.div`
   border: 1px solid #333;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  margin-bottom: 20px;
-  min-width: 250px;
+  padding: 16px;
+  margin-bottom: 16px;
+  min-width: 200px;
 `;
 
 const FilterTitle = styled.h3`
-  margin: 0 0 16px 0;
-  font-size: 18px;
+  margin: 0 0 12px 0;
+  font-size: 16px;
   font-weight: 600;
   color: #e0e0e0;
 `;
 
 const FilterGroup = styled.div`
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 `;
 
 const FilterLabel = styled.label`
   display: block;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #b0b0b0;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 `;
 
 const FilterSelect = styled.select`
@@ -152,7 +152,7 @@ const StatsContainer = styled.div`
   border: 1px solid #333;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  padding: 20px;
+  padding: 16px;
 `;
 
 const InstructionPanel = styled.div`
@@ -178,17 +178,17 @@ const InstructionText = styled.p`
 `;
 
 const StatItem = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 `;
 
 const StatValue = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: #B22222;
 `;
 
 const StatLabel = styled.div`
-  font-size: 12px;
+  font-size: 11px;
   color: #888;
   text-transform: uppercase;
   font-weight: 600;

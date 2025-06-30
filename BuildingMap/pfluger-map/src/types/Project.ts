@@ -1,4 +1,16 @@
-import { DomeCoordinates, EquirectangularMetadata } from './DomeProjection';
+// Simple coordinate and metadata types for 360° images
+export interface DomeCoordinates {
+  azimuth: number;
+  elevation: number;
+  distance: number;
+}
+
+export interface EquirectangularMetadata {
+  width: number;
+  height: number;
+  fov: number;
+  projection: string;
+}
 
 export interface Project {
   name: string;
@@ -17,24 +29,15 @@ export interface Project {
   latitude: number;
   longitude: number;
   
-  // Enhanced dome projection metadata
+  // Simplified dome projection metadata for 360° viewing
   domeMetadata?: {
     preferredViewAngle?: DomeCoordinates;
-    tourWaypoints?: DomeCoordinates[];
-    interactionZones?: Array<{
-      position: DomeCoordinates;
-      radius: number;
-      action: string;
-      description?: string;
-    }>;
     equirectangularImage?: {
       url: string;
       metadata: EquirectangularMetadata;
     };
     immersiveFeatures?: {
       supports360View: boolean;
-      supportsVirtualTour: boolean;
-      hasInteractiveElements: boolean;
     };
   };
 }
