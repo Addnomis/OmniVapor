@@ -14,7 +14,58 @@
     "description": "Innovative educational environment with sustainable design features.",
     "state": "Texas",
     "latitude": 29.5844,
-    "longitude": -95.9039
+    "longitude": -95.9039,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 10.559031301704058,
+        "elevation": 9.615126804896132,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 227.5158886316916,
+            "elevation": -1.6723988082487011,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Haygood Elementary School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Midland and Legacy High School",
@@ -31,7 +82,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 32.0174,
-    "longitude": -102.0779
+    "longitude": -102.0779,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 303.07309324793476,
+        "elevation": 11.571176282904993,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 225.58221459087733,
+            "elevation": -5.323077505124116,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Midland and Legacy High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Del Valle High School #2",
@@ -48,7 +150,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.1833,
-    "longitude": -97.6803
+    "longitude": -97.6803,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 279.4480676599513,
+        "elevation": -7.697382260796451,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 13.839509388290082,
+            "elevation": -9.895414795572663,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Del Valle High School #2"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "San Gabriel Campus",
@@ -65,7 +218,58 @@
     "description": "Modern university building designed for collaborative learning and innovation.",
     "state": "Texas",
     "latitude": 30.2672,
-    "longitude": -97.7431
+    "longitude": -97.7431,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 169.7158623607931,
+        "elevation": -12.944737089969884,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 56.91459797945067,
+            "elevation": 5.71907029272861,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of San Gabriel Campus"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Game Development Design School",
@@ -82,7 +286,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Texas",
     "latitude": 32.5421,
-    "longitude": -97.3208
+    "longitude": -97.3208,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 234.53620054560264,
+        "elevation": 11.592113075266077,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 225.13659488590898,
+            "elevation": -7.720758022070222,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Game Development Design School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Performing Arts Center",
@@ -99,7 +354,58 @@
     "description": "Innovative educational environment with sustainable design features.",
     "state": "Texas",
     "latitude": 30.2672,
-    "longitude": -97.7431
+    "longitude": -97.7431,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 245.19528354809574,
+        "elevation": 9.994722587112403,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 45.44341663706216,
+            "elevation": -7.39286225034016,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Performing Arts Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Hutto Ninth Grade Center",
@@ -116,7 +422,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.5427,
-    "longitude": -97.5461
+    "longitude": -97.5461,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 57.22077008389349,
+        "elevation": 2.5537137901406055,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 77.1493239861843,
+            "elevation": -1.2505822171645384,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Hutto Ninth Grade Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "End Zone Complex at Bobcat Stadium",
@@ -133,7 +490,58 @@
     "description": "Contemporary campus facility featuring cutting-edge technology and flexible spaces.",
     "state": "Texas",
     "latitude": 29.8883,
-    "longitude": -97.9384
+    "longitude": -97.9384,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 194.55755393913185,
+        "elevation": -3.278694354369417,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 59.86706695009158,
+            "elevation": 3.8427090618660102,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of End Zone Complex at Bobcat Stadium"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Pieper High School",
@@ -150,7 +558,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 29.703,
-    "longitude": -98.1245
+    "longitude": -98.1245,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 79.36834971665688,
+        "elevation": 2.6324153816882756,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 202.96834559965808,
+            "elevation": 3.4913078935473845,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Pieper High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Southside High School",
@@ -167,7 +626,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Louisiana",
     "latitude": 30.2241,
-    "longitude": -92.0198
+    "longitude": -92.0198,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 171.3430934905448,
+        "elevation": -4.289254505724635,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 124.45009858982553,
+            "elevation": -3.2618753132571854,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Southside High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "E.F. Green Junior School",
@@ -184,7 +694,58 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 29.7355,
-    "longitude": -95.056
+    "longitude": -95.056,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 197.93396463946289,
+        "elevation": -12.171020895606766,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 176.85846422586252,
+            "elevation": 8.449584336496784,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of E.F. Green Junior School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Sports Complex",
@@ -201,7 +762,58 @@
     "description": "Contemporary campus facility featuring cutting-edge technology and flexible spaces.",
     "state": "Texas",
     "latitude": 30.3072,
-    "longitude": -97.7278
+    "longitude": -97.7278,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 297.64555794967686,
+        "elevation": 0.30922067705183487,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 107.04100142687203,
+            "elevation": -5.995545406037168,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Sports Complex"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Lafayette High School",
@@ -218,7 +830,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Louisiana",
     "latitude": 30.2241,
-    "longitude": -92.0198
+    "longitude": -92.0198,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 54.0764453517559,
+        "elevation": 5.400764143619192,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 280.4608859056161,
+            "elevation": 3.319918279995731,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Lafayette High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Clarence W. Norris Building",
@@ -235,7 +898,58 @@
     "description": "State-of-the-art higher education building promoting academic excellence.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 137.6190300726103,
+        "elevation": 1.3218353478783342,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 32.29353844871794,
+            "elevation": -4.726724933772532,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Clarence W. Norris Building"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Sandbrock Ranch Elementary",
@@ -252,7 +966,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 33.2148,
-    "longitude": -97.1331
+    "longitude": -97.1331,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 264.00362675855,
+        "elevation": -5.558397345200486,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 326.0583422417453,
+            "elevation": -5.898212159062782,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Sandbrock Ranch Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Southwest High School",
@@ -269,7 +1034,58 @@
     "description": "Innovative educational environment with sustainable design features.",
     "state": "Texas",
     "latitude": 29.3013,
-    "longitude": -98.7264
+    "longitude": -98.7264,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 49.13287926435522,
+        "elevation": 7.316610607604119,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 14.36924122141849,
+            "elevation": -4.6138478753806815,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Southwest High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Teaching Lab & Automotive Facility",
@@ -286,7 +1102,58 @@
     "description": "Specialized facility designed for hands-on technical education and training.",
     "state": "Texas",
     "latitude": 30.2672,
-    "longitude": -97.7431
+    "longitude": -97.7431,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 282.4205764747158,
+        "elevation": -5.500579513478092,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 315.3187956082596,
+            "elevation": 4.855072638621138,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Teaching Lab & Automotive Facility"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Hidden Lake Elementary School",
@@ -303,7 +1170,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.4427,
-    "longitude": -97.62
+    "longitude": -97.62,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 61.87944166267534,
+        "elevation": -12.807716758295937,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 100.23309844637555,
+            "elevation": -6.084288582902753,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Hidden Lake Elementary School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Cornerstone High School",
@@ -320,7 +1238,58 @@
     "description": "Innovative educational environment with sustainable design features.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 21.59900361988944,
+        "elevation": 13.520903022861933,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 76.51654774117158,
+            "elevation": 7.683549293456384,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Cornerstone High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Hornsby-Dunlap & Smith Elementary Schools",
@@ -337,7 +1306,58 @@
     "description": "Innovative educational environment with sustainable design features.",
     "state": "Texas",
     "latitude": 30.1833,
-    "longitude": -97.6803
+    "longitude": -97.6803,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 291.6558186010929,
+        "elevation": 14.816280221234976,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 290.81424232499427,
+            "elevation": -3.033629865065672,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Hornsby-Dunlap & Smith Elementary Schools"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Peabody Elementary",
@@ -354,7 +1374,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Texas",
     "latitude": 32.7767,
-    "longitude": -96.797
+    "longitude": -96.797,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 59.87836161277591,
+        "elevation": 2.1768709973128892,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 331.43427343892876,
+            "elevation": 0.2380299029555779,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Peabody Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Marathon STEM & Robotics Center",
@@ -371,7 +1442,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 29.3838,
-    "longitude": -94.9027
+    "longitude": -94.9027,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 290.4875429777452,
+        "elevation": -2.8534850628721475,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 61.9818386118704,
+            "elevation": 1.9281192413174608,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Marathon STEM & Robotics Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Timberlake Biological Field Station",
@@ -388,7 +1510,58 @@
     "description": "Modern university building designed for collaborative learning and innovation.",
     "state": "Texas",
     "latitude": 32.2207,
-    "longitude": -98.202
+    "longitude": -98.202,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 297.12952883790996,
+        "elevation": 1.1776498740278392,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 239.67764639222628,
+            "elevation": -9.256386366619987,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Timberlake Biological Field Station"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "South School Early Childhood Development Center",
@@ -405,7 +1578,58 @@
     "description": "Specialized facility designed for hands-on technical education and training.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 187.4771497235425,
+        "elevation": -10.614001365193989,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 213.51204378857776,
+            "elevation": -0.8252673611274481,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of South School Early Childhood Development Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Westwood Junior High Replacement",
@@ -422,7 +1646,58 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 31.2638,
-    "longitude": -97.4811
+    "longitude": -97.4811,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 8.749137123061148,
+        "elevation": -10.626171884683611,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 184.2520362848436,
+            "elevation": 6.7367325763355765,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Westwood Junior High Replacement"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Hutto Elementary",
@@ -439,7 +1714,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 30.5427,
-    "longitude": -97.5461
+    "longitude": -97.5461,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 150.49245519229476,
+        "elevation": 7.865110503506521,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 337.93840444021976,
+            "elevation": 2.4898571191906242,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Hutto Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Science & Technology Complex",
@@ -456,7 +1782,58 @@
     "description": "Modern university building designed for collaborative learning and innovation.",
     "state": "Texas",
     "latitude": 29.703,
-    "longitude": -98.1245
+    "longitude": -98.1245,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 129.23771440369413,
+        "elevation": 14.612314862939186,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 181.82661218458009,
+            "elevation": -9.554358792596442,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Science & Technology Complex"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Bar W Elementary School",
@@ -473,7 +1850,58 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 30.6638,
-    "longitude": -97.9225
+    "longitude": -97.9225,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 259.42423647135746,
+        "elevation": -8.74919087856047,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 304.91589556977453,
+            "elevation": 9.370937593698972,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Bar W Elementary School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Charles Street Stadium",
@@ -490,7 +1918,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 29.9988,
-    "longitude": -95.2621
+    "longitude": -95.2621,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 267.20231586955754,
+        "elevation": 2.607480403823743,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 208.48496251005133,
+            "elevation": 7.268037488911624,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Charles Street Stadium"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Lundquist Center",
@@ -507,7 +1986,58 @@
     "description": "Advanced academic facility supporting research and higher learning initiatives.",
     "state": "Texas",
     "latitude": 29.703,
-    "longitude": -98.1245
+    "longitude": -98.1245,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 51.38781431473056,
+        "elevation": -4.8620104536731485,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 55.678167391882326,
+            "elevation": -4.423152893171092,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Lundquist Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Boerne Elementary #8",
@@ -524,7 +2054,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 29.7946,
-    "longitude": -98.732
+    "longitude": -98.732,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 51.09786538735475,
+        "elevation": 10.657339354280797,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 319.26304361146254,
+            "elevation": -6.708521658116384,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Boerne Elementary #8"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Jackson Middle School",
@@ -541,7 +2122,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 29.5449,
-    "longitude": -98.3439
+    "longitude": -98.3439,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 134.89479852272518,
+        "elevation": -13.94540008564921,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 158.0151194664971,
+            "elevation": -6.940318648275405,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Jackson Middle School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "ACC Bioscience Incubator",
@@ -558,7 +2190,58 @@
     "description": "Innovative university facility designed to support diverse academic programs.",
     "state": "Texas",
     "latitude": 30.2672,
-    "longitude": -97.7431
+    "longitude": -97.7431,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 165.61836450178942,
+        "elevation": 8.969891461062396,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 207.81644580570676,
+            "elevation": 2.544043062832312,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of ACC Bioscience Incubator"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Jones Dining Hall",
@@ -575,7 +2258,58 @@
     "description": "Advanced academic facility supporting research and higher learning initiatives.",
     "state": "Texas",
     "latitude": 29.8883,
-    "longitude": -97.9384
+    "longitude": -97.9384,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 255.9631165352962,
+        "elevation": 8.283840027312863,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 87.68962276029809,
+            "elevation": -0.17945165423058462,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Jones Dining Hall"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Buford H. Jester Residence Hall Towers",
@@ -592,7 +2326,58 @@
     "description": "Contemporary campus facility featuring cutting-edge technology and flexible spaces.",
     "state": "Texas",
     "latitude": 30.2849,
-    "longitude": -97.7341
+    "longitude": -97.7341,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 80.74360144740275,
+        "elevation": 6.613195566831006,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 47.55245997530822,
+            "elevation": -6.216474381962804,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Buford H. Jester Residence Hall Towers"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "E.L.Turbon Student Center",
@@ -609,7 +2394,58 @@
     "description": "Modern university building designed for collaborative learning and innovation.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 133.4163991135539,
+        "elevation": 4.736720166761614,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 163.66197871988885,
+            "elevation": -5.412080523543179,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of E.L.Turbon Student Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Cotulla High School",
@@ -626,7 +2462,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Texas",
     "latitude": 28.4361,
-    "longitude": -99.2353
+    "longitude": -99.2353,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 174.2327224193084,
+        "elevation": 5.693976511420487,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 345.12091724143,
+            "elevation": -5.7581556987690625,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Cotulla High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Kinsolving Student Lounges Modernization",
@@ -643,7 +2530,58 @@
     "description": "Advanced academic facility supporting research and higher learning initiatives.",
     "state": "Texas",
     "latitude": 30.2849,
-    "longitude": -97.7341
+    "longitude": -97.7341,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 109.7994794378266,
+        "elevation": 0.3944241203683614,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 158.95078477098286,
+            "elevation": 0.6523858946637944,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Kinsolving Student Lounges Modernization"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Hunters Creek Elementary",
@@ -660,7 +2598,58 @@
     "description": "Modern learning facility with emphasis on STEM education and community integration.",
     "state": "Texas",
     "latitude": 29.7833,
-    "longitude": -95.5555
+    "longitude": -95.5555,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (3).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 216.050756787033,
+        "elevation": -12.603809248410007,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 47.68746470271173,
+            "elevation": 7.993137425082956,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Hunters Creek Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Pfluger Dallas Office",
@@ -677,7 +2666,58 @@
     "description": "Modern complex featuring flexible spaces and advanced building systems.",
     "state": "Texas",
     "latitude": 32.7767,
-    "longitude": -96.797
+    "longitude": -96.797,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Front Entry.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 244.21362572701923,
+        "elevation": 0.883582403728953,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 160.17295468460685,
+            "elevation": 6.995747535529354,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Pfluger Dallas Office"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Stuart Career Tech High School",
@@ -694,7 +2734,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 29.7355,
-    "longitude": -95.056
+    "longitude": -95.056,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Front Entry.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 141.50764415917882,
+        "elevation": -11.300690629562677,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 197.12656825758924,
+            "elevation": -3.943229036155733,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Stuart Career Tech High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Buffalo Stadium",
@@ -711,7 +2802,58 @@
     "description": "Innovative university facility designed to support diverse academic programs.",
     "state": "Texas",
     "latitude": 35.1983,
-    "longitude": -101.8313
+    "longitude": -101.8313,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 105.1862307697253,
+        "elevation": -11.367174960141185,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 15.633432070862545,
+            "elevation": 3.11896014906819,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Buffalo Stadium"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Bass Concert Hall",
@@ -728,7 +2870,58 @@
     "description": "Contemporary campus facility featuring cutting-edge technology and flexible spaces.",
     "state": "Texas",
     "latitude": 30.2849,
-    "longitude": -97.7341
+    "longitude": -97.7341,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 77.07341933907554,
+        "elevation": 0.24547201460556778,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 151.67402191989981,
+            "elevation": -7.722139461722111,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Bass Concert Hall"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Texas Swim Center Renovations",
@@ -745,7 +2938,58 @@
     "description": "Innovative university facility designed to support diverse academic programs.",
     "state": "Texas",
     "latitude": 30.2849,
-    "longitude": -97.7341
+    "longitude": -97.7341,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 41.947893379131735,
+        "elevation": 1.1293721343509695,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 359.3934526128149,
+            "elevation": -9.950751153959105,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Texas Swim Center Renovations"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Combined Center",
@@ -762,7 +3006,58 @@
     "description": "Innovative university facility designed to support diverse academic programs.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 199.02071734626028,
+        "elevation": -14.309710881880921,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 30.50798677810093,
+            "elevation": -9.247750994298585,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Combined Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "The Harvey Schools",
@@ -779,7 +3074,58 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 29.7604,
-    "longitude": -95.3698
+    "longitude": -95.3698,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Outdoor (2).png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 123.73480118275947,
+        "elevation": 4.271233598655638,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 180.32506021402094,
+            "elevation": 1.5270393319345708,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of The Harvey Schools"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Westfield Ninth Grade Center",
@@ -796,7 +3142,58 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 30.0799,
-    "longitude": -95.4171
+    "longitude": -95.4171,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 264.3631039311744,
+        "elevation": -13.280595615031318,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 50.20720150246137,
+            "elevation": -1.7516058260057576,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Westfield Ninth Grade Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Wunderland at Deep Wood Elementary",
@@ -813,7 +3210,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.5083,
-    "longitude": -97.6789
+    "longitude": -97.6789,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 64.57557696315823,
+        "elevation": 3.5134433230458626,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 256.6219579020367,
+            "elevation": 4.458540851120912,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Wunderland at Deep Wood Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Alexander 9th Grade Center",
@@ -830,7 +3278,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 27.5306,
-    "longitude": -99.4803
+    "longitude": -99.4803,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 48.89866211614699,
+        "elevation": 11.529597743639957,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 350.6205608241942,
+            "elevation": -7.949190126151722,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Alexander 9th Grade Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Pieper Ranch Middle School",
@@ -847,7 +3346,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 29.703,
-    "longitude": -98.1245
+    "longitude": -98.1245,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Front Entry.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 34.65910482687298,
+        "elevation": 2.45958615877705,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 275.6347109966366,
+            "elevation": 1.3860267517650158,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Pieper Ranch Middle School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "SpringHill Suites at the Domain",
@@ -864,7 +3414,58 @@
     "description": "Contemporary building featuring efficient design and sustainable practices.",
     "state": "Texas",
     "latitude": 31.9686,
-    "longitude": -99.9018
+    "longitude": -99.9018,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 234.913463028719,
+        "elevation": 14.210500809108957,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 280.59852793783216,
+            "elevation": 5.933718580989122,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of SpringHill Suites at the Domain"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Nature to Neighborhood Studio",
@@ -881,7 +3482,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.5083,
-    "longitude": -97.6789
+    "longitude": -97.6789,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Front Entry.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 4.707393162263966,
+        "elevation": -8.933705364535982,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 177.06417428566533,
+            "elevation": 2.9322932255001337,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Nature to Neighborhood Studio"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Texas Association of School Board Officials (TASBO) Office",
@@ -898,7 +3550,58 @@
     "description": "Modern complex featuring flexible spaces and advanced building systems.",
     "state": "Texas",
     "latitude": 31.9686,
-    "longitude": -99.9018
+    "longitude": -99.9018,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 358.4442870369852,
+        "elevation": 2.0655779717990335,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 47.298387402916816,
+            "elevation": 3.439085744587409,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Texas Association of School Board Officials (TASBO) Office"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Public Safety Headquarters",
@@ -915,7 +3618,58 @@
     "description": "Modern facility designed to meet specific organizational and community needs.",
     "state": "Texas",
     "latitude": 29.4241,
-    "longitude": -98.4936
+    "longitude": -98.4936,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Front Entry.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 318.51781343839326,
+        "elevation": 2.654688714472279,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 115.99335836743546,
+            "elevation": -4.726530244923497,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Public Safety Headquarters"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Caroline Weston Center for the Performing Arts",
@@ -932,7 +3686,58 @@
     "description": "Advanced academic facility supporting research and higher learning initiatives.",
     "state": "Texas",
     "latitude": 29.703,
-    "longitude": -98.1245
+    "longitude": -98.1245,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 75.21526657165933,
+        "elevation": -3.2234444532565156,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 9.512458253606786,
+            "elevation": 5.642406144354419,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Caroline Weston Center for the Performing Arts"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "ACC Public Safety Training Center",
@@ -949,7 +3754,58 @@
     "description": "Contemporary campus facility featuring cutting-edge technology and flexible spaces.",
     "state": "Texas",
     "latitude": 30.2672,
-    "longitude": -97.7431
+    "longitude": -97.7431,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 217.95579393341373,
+        "elevation": 9.441511667956917,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 161.30823134719867,
+            "elevation": 4.266319468141733,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of ACC Public Safety Training Center"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Woodland Acres Elementary",
@@ -966,7 +3822,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 29.7355,
-    "longitude": -95.056
+    "longitude": -95.056,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Patio.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 286.07466163347107,
+        "elevation": 13.44381283344223,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 125.54537961437958,
+            "elevation": -8.49379605870335,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Woodland Acres Elementary"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Legacy High School",
@@ -983,7 +3890,58 @@
     "description": "Contemporary campus design promoting collaboration and student engagement.",
     "state": "Texas",
     "latitude": 29.3013,
-    "longitude": -98.7264
+    "longitude": -98.7264,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Cafeteria.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 281.75347734777927,
+        "elevation": -2.9594290259361706,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 297.5419302467052,
+            "elevation": 5.392988772845502,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Legacy High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "Tom Glenn High School",
@@ -1000,7 +3958,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 30.5788,
-    "longitude": -97.8536
+    "longitude": -97.8536,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Edit-Library2.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 298.1711895620331,
+        "elevation": -3.7456479138301884,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 208.45116201914936,
+            "elevation": 7.411792678046531,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of Tom Glenn High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "David Lee “Tex” Hill Middle School",
@@ -1017,7 +4026,58 @@
     "description": "A modern educational facility designed to inspire learning and creativity.",
     "state": "Texas",
     "latitude": 29.5449,
-    "longitude": -98.3439
+    "longitude": -98.3439,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Science Classroom.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 303.48615201982204,
+        "elevation": -5.42066425856482,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 305.51070378597814,
+            "elevation": -9.65892183932635,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of David Lee “Tex” Hill Middle School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   },
   {
     "name": "LEE High School",
@@ -1034,6 +4094,57 @@
     "description": "State-of-the-art school building featuring flexible learning spaces and advanced technology.",
     "state": "Texas",
     "latitude": 29.5449,
-    "longitude": -98.3439
+    "longitude": -98.3439,
+    "domeMetadata": {
+      "equirectangularImage": {
+        "url": "/images/360_Images/Reception.png",
+        "metadata": {
+          "width": 4096,
+          "height": 2048,
+          "fieldOfView": 360,
+          "projection": "equirectangular",
+          "optimizedForDome": true
+        }
+      },
+      "preferredViewAngle": {
+        "azimuth": 127.58322261519385,
+        "elevation": 8.718177997434207,
+        "distance": 0.8
+      },
+      "interactionZones": [
+        {
+          "position": {
+            "azimuth": 150.6955140018345,
+            "elevation": -8.217993457675641,
+            "distance": 0.9
+          },
+          "radius": 0.1,
+          "action": "highlight",
+          "description": "Key feature of LEE High School"
+        }
+      ],
+      "tourWaypoints": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 90,
+          "elevation": 10,
+          "distance": 0.8
+        },
+        {
+          "azimuth": 180,
+          "elevation": 5,
+          "distance": 0.8
+        }
+      ],
+      "immersiveFeatures": {
+        "supports360View": true,
+        "supportsVirtualTour": true,
+        "hasInteractiveElements": true
+      }
+    }
   }
 ]
