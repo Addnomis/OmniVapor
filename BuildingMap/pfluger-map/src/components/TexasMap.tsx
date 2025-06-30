@@ -8,6 +8,9 @@ import 'leaflet/dist/leaflet.css';
 
 interface TexasMapProps {
   projects: Project[];
+  onProjectSelect?: (project: Project) => void;
+  onProjectImmersive?: (project: Project) => void;
+  isDomeMode?: boolean;
 }
 
 const MapWrapper = styled.div`
@@ -137,7 +140,12 @@ const StatLabel = styled.div`
   letter-spacing: 0.5px;
 `;
 
-const TexasMap: React.FC<TexasMapProps> = ({ projects }) => {
+const TexasMap: React.FC<TexasMapProps> = ({ 
+  projects, 
+  onProjectSelect, 
+  onProjectImmersive, 
+  isDomeMode = false 
+}) => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [selectedMarket, setSelectedMarket] = useState<string>('all');
   const [hoveredProject, setHoveredProject] = useState<Project | null>(null);

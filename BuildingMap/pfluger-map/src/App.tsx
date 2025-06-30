@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TexasMap from './components/TexasMap';
+import EquirectangularViewer from './components/EquirectangularViewer';
 import { Project } from './types/Project';
+import domeService from './services/DomeIntegrationService';
+import { DomeNavigationState } from './types/DomeProjection';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -103,6 +106,9 @@ const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [domeNavigationState, setDomeNavigationState] = useState<DomeNavigationState | null>(null);
+  const [isDomeEnvironment, setIsDomeEnvironment] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -123,6 +129,54 @@ const App: React.FC = () => {
 
     loadProjects();
   }, []);
+
+  // Initialize dome service and listen for events
+  useEffect(() => {
+    const initializeDome = async () => {
+      // Wait for dome service to initialize
+      if (domeService.initialized) {
+        setIsDomeEnvironment(domeService.inDomeEnvironment);
+        setDomeNavigationState(domeService.currentNavigationState);
+      }
+    };
+
+    initializeDome();
+
+    // Listen for dome events
+    domeService.onEvent('initialized', (data) => {
+      setIsDomeEnvironment(data.isDomeEnvironment);
+    });
+
+    domeService.onEvent('navigationStateChange', (state) => {
+      setDomeNavigationState(state);
+    });
+
+    domeService.onEvent('domeInteraction', (event) => {
+      console.log('🔮 Dome interaction received:', event);
+    });
+  }, []);
+
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProject(project);
+    
+    if (isDomeEnvironment) {
+      // Navigate to project in dome
+      domeService.navigateToProject(project.name);
+    }
+  };
+
+  const handleEnterImmersiveMode = async (project: Project) => {
+    if (isDomeEnvironment && project.domeMetadata?.equirectangularImage) {
+      await domeService.enterImmersiveMode(project.name);
+    }
+  };
+
+  const handleExitImmersiveMode = async () => {
+    if (isDomeEnvironment) {
+      await domeService.exitImmersiveMode();
+      setSelectedProject(null);
+    }
+  };
 
   if (loading) {
     return (
@@ -150,12 +204,55 @@ const App: React.FC = () => {
         <HeaderContent>
           <div>
             <Title>Pfluger Architects Portfolio Map</Title>
-            <Subtitle>Interactive map of {projects.length} architectural projects across Texas and Louisiana</Subtitle>
+            <Subtitle>
+              Interactive map of {projects.length} architectural projects across Texas and Louisiana
+              {isDomeEnvironment && ' 🔮 Dome Mode Active'}
+            </Subtitle>
           </div>
+          {isDomeEnvironment && (
+            <div style={{ display: 'flex', gap: '10px' }}>
+              {domeNavigationState?.isImmersive && (
+                <button 
+                  onClick={handleExitImmersiveMode}
+                  style={{
+                    padding: '8px 16px',
+                    background: '#e74c3c',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Exit Immersive Mode
+                </button>
+              )}
+              <div style={{ fontSize: '12px', color: '#7f8c8d' }}>
+                Mode: {domeNavigationState?.viewMode || 'map'}
+              </div>
+            </div>
+          )}
         </HeaderContent>
       </Header>
       <div style={{ paddingTop: '80px' }}>
-        <TexasMap projects={projects} />
+        {domeNavigationState?.isImmersive && selectedProject?.domeMetadata?.equirectangularImage ? (
+          <EquirectangularViewer
+            imageUrl={selectedProject.domeMetadata.equirectangularImage.url}
+            metadata={selectedProject.domeMetadata.equirectangularImage.metadata}
+            domeOptimized={isDomeEnvironment}
+            onViewChange={(coordinates) => {
+              if (isDomeEnvironment) {
+                domeService.updateView(coordinates);
+              }
+            }}
+          />
+        ) : (
+          <TexasMap 
+            projects={projects} 
+            onProjectSelect={handleProjectSelect}
+            onProjectImmersive={handleEnterImmersiveMode}
+            isDomeMode={isDomeEnvironment}
+          />
+        )}
       </div>
     </AppContainer>
   );

@@ -1,3 +1,5 @@
+import { DomeCoordinates, EquirectangularMetadata } from './DomeProjection';
+
 export interface Project {
   name: string;
   location: string;
@@ -14,6 +16,27 @@ export interface Project {
   state: string;
   latitude: number;
   longitude: number;
+  
+  // Enhanced dome projection metadata
+  domeMetadata?: {
+    preferredViewAngle?: DomeCoordinates;
+    tourWaypoints?: DomeCoordinates[];
+    interactionZones?: Array<{
+      position: DomeCoordinates;
+      radius: number;
+      action: string;
+      description?: string;
+    }>;
+    equirectangularImage?: {
+      url: string;
+      metadata: EquirectangularMetadata;
+    };
+    immersiveFeatures?: {
+      supports360View: boolean;
+      supportsVirtualTour: boolean;
+      hasInteractiveElements: boolean;
+    };
+  };
 }
 
 export interface MapTooltipData {
