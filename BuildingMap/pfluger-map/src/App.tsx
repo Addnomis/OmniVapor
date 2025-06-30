@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import TexasMap from './components/TexasMap';
 import EquirectangularViewer from './components/EquirectangularViewer';
+// import VirtualTourSystem from './components/VirtualTourSystem';
 import { Project } from './types/Project';
 import domeService from './services/DomeIntegrationService';
 import { DomeNavigationState } from './types/DomeProjection';
+import { add360ImagesToProjects } from './utils/add360Images';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -102,6 +104,36 @@ const Subtitle = styled.p`
   font-weight: 500;
 `;
 
+const ProjectInfoOverlay = styled.div`
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  z-index: 1000;
+`;
+
+const ProjectTitle = styled.h2`
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+`;
+
+const ProjectDetails = styled.div`
+  font-size: 14px;
+  color: #bdc3c7;
+  line-height: 1.5;
+  
+  strong {
+    color: #ecf0f1;
+  }
+`;
+
 const App: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -109,6 +141,7 @@ const App: React.FC = () => {
   const [domeNavigationState, setDomeNavigationState] = useState<DomeNavigationState | null>(null);
   const [isDomeEnvironment, setIsDomeEnvironment] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showProjectDetails, setShowProjectDetails] = useState(false);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -118,7 +151,9 @@ const App: React.FC = () => {
           throw new Error(`Failed to load project data: ${response.status}`);
         }
         const data: Project[] = await response.json();
-        setProjects(data);
+        // Add 360° images to projects for tour system testing
+        const projectsWith360Images = add360ImagesToProjects(data);
+        setProjects(projectsWith360Images);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load project data');
         console.error('Error loading projects:', err);
@@ -156,6 +191,7 @@ const App: React.FC = () => {
     });
   }, []);
 
+  // Keep this for dome immersive mode compatibility
   const handleProjectSelect = (project: Project) => {
     setSelectedProject(project);
     
@@ -175,6 +211,22 @@ const App: React.FC = () => {
     if (isDomeEnvironment) {
       await domeService.exitImmersiveMode();
       setSelectedProject(null);
+    }
+  };
+
+  const handleShowProjectDetails = (project: Project) => {
+    setSelectedProject(project);
+    setShowProjectDetails(true);
+    if (isDomeEnvironment) {
+      domeService.setViewMode('project');
+    }
+  };
+
+  const handleBackToMap = () => {
+    setShowProjectDetails(false);
+    setSelectedProject(null);
+    if (isDomeEnvironment) {
+      domeService.setViewMode('map');
     }
   };
 
@@ -209,32 +261,93 @@ const App: React.FC = () => {
               {isDomeEnvironment && ' 🔮 Dome Mode Active'}
             </Subtitle>
           </div>
-          {isDomeEnvironment && (
-            <div style={{ display: 'flex', gap: '10px' }}>
-              {domeNavigationState?.isImmersive && (
-                <button 
-                  onClick={handleExitImmersiveMode}
-                  style={{
-                    padding: '8px 16px',
-                    background: '#e74c3c',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer'
-                  }}
-                >
-                  Exit Immersive Mode
-                </button>
-              )}
-              <div style={{ fontSize: '12px', color: '#7f8c8d' }}>
-                Mode: {domeNavigationState?.viewMode || 'map'}
-              </div>
-            </div>
-          )}
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+            {showProjectDetails && selectedProject && (
+              <button 
+                onClick={handleBackToMap}
+                style={{
+                  padding: '8px 16px',
+                  background: '#e74c3c',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}
+              >
+                ← Back to Map
+              </button>
+            )}
+            
+            {isDomeEnvironment && (
+              <>
+                {domeNavigationState?.isImmersive && (
+                  <button 
+                    onClick={handleExitImmersiveMode}
+                    style={{
+                      padding: '8px 16px',
+                      background: '#e74c3c',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '4px',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Exit Immersive Mode
+                  </button>
+                )}
+                <div style={{ fontSize: '12px', color: '#7f8c8d' }}>
+                  🔮 Dome Mode: {domeNavigationState?.viewMode || 'map'}
+                </div>
+              </>
+            )}
+          </div>
         </HeaderContent>
       </Header>
       <div style={{ paddingTop: '80px' }}>
-        {domeNavigationState?.isImmersive && selectedProject?.domeMetadata?.equirectangularImage ? (
+        {showProjectDetails && selectedProject?.domeMetadata?.equirectangularImage ? (
+          <>
+            <EquirectangularViewer
+              imageUrl={selectedProject.domeMetadata.equirectangularImage.url}
+              metadata={selectedProject.domeMetadata.equirectangularImage.metadata}
+              domeOptimized={isDomeEnvironment}
+              onViewChange={(coordinates) => {
+                if (isDomeEnvironment) {
+                  domeService.updateView(coordinates);
+                }
+              }}
+            />
+            <ProjectInfoOverlay>
+              <ProjectTitle>{selectedProject.name}</ProjectTitle>
+              <ProjectDetails>
+                <div><strong>Location:</strong> {selectedProject.location}</div>
+                <div><strong>Market:</strong> {selectedProject.market}</div>
+                <div><strong>Year:</strong> {selectedProject.year_built}</div>
+                <div><strong>Size:</strong> {selectedProject.size}</div>
+                <div><strong>Cost:</strong> {selectedProject.cost}</div>
+                <div style={{ marginTop: '10px' }}>{selectedProject.description}</div>
+              </ProjectDetails>
+            </ProjectInfoOverlay>
+            
+            <div style={{
+              position: 'absolute',
+              bottom: '20px',
+              right: '20px',
+              background: 'rgba(0, 0, 0, 0.7)',
+              color: 'white',
+              padding: '15px',
+              borderRadius: '10px',
+              fontSize: '12px',
+              maxWidth: '200px',
+              zIndex: 1000
+            }}>
+              <div style={{ fontWeight: '600', marginBottom: '8px' }}>360° Navigation</div>
+              <div>🖱️ Drag to look around</div>
+              <div>🔍 Scroll to zoom</div>
+              {isDomeEnvironment && <div>🎯 Dome optimized view</div>}
+            </div>
+          </>
+        ) : domeNavigationState?.isImmersive && selectedProject?.domeMetadata?.equirectangularImage ? (
           <EquirectangularViewer
             imageUrl={selectedProject.domeMetadata.equirectangularImage.url}
             metadata={selectedProject.domeMetadata.equirectangularImage.metadata}
@@ -248,7 +361,7 @@ const App: React.FC = () => {
         ) : (
           <TexasMap 
             projects={projects} 
-            onProjectSelect={handleProjectSelect}
+            onProjectSelect={handleShowProjectDetails}
             onProjectImmersive={handleEnterImmersiveMode}
             isDomeMode={isDomeEnvironment}
           />
