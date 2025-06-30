@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/OmniVapor/static/css/main.323d7611.css",
+    "main.js": "/OmniVapor/static/js/main.3672c788.js",
+    "index.html": "/OmniVapor/index.html",
+    "main.323d7611.css.map": "/OmniVapor/static/css/main.323d7611.css.map",
+    "main.3672c788.js.map": "/OmniVapor/static/js/main.3672c788.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.323d7611.css",
+    "static/js/main.3672c788.js"
+  ]
+}
