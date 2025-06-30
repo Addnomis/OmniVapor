@@ -2,7 +2,7 @@
   "name": "pfluger-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexanderwickes.github.io/BuildingMap",
+  "homepage": "https://Addnomis.github.io/OmniVapor",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

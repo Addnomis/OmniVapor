@@ -148,7 +148,6 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [progress, setProgress] = useState(0);
-  const [loadStartTime, setLoadStartTime] = useState<number>(0);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Mouse interaction state
@@ -279,8 +278,6 @@ const Simple360Viewer: React.FC<Simple360ViewerProps> = ({ imageUrl, projectName
   }, []);
 
   const loadTexture = useCallback(() => {
-    setLoadStartTime(Date.now());
-    
     const progressInterval = simulateProgress();
     
     const loader = new THREE.TextureLoader();

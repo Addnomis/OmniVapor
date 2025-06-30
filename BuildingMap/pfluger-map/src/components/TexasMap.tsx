@@ -56,10 +56,41 @@ const MapSection = styled.div`
   order: 2;
 `;
 
-const MapContainer_Styled = styled(MapContainer)`
-  width: 100%;
+const MapContainerStyled = styled(MapContainer)`
   height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background: #1a1a1a;
   z-index: 1;
+  
+  .leaflet-control-zoom {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    
+    a {
+      background: #2a2a2a;
+      color: #fff;
+      border-color: #444;
+      
+      &:hover {
+        background: #3a3a3a;
+        color: #B22222;
+      }
+    }
+  }
+  
+  .leaflet-popup-content-wrapper {
+    background: #2a2a2a;
+    color: #fff;
+    border-radius: 8px;
+    border: 1px solid #444;
+  }
+  
+  .leaflet-popup-tip {
+    background: #2a2a2a;
+    border: 1px solid #444;
+  }
 `;
 
 const FilterPanel = styled.div`
@@ -330,7 +361,7 @@ const TexasMap: React.FC<TexasMapProps> = ({
 
       {/* Map Section */}
       <MapSection>
-        <MapContainer_Styled
+        <MapContainerStyled
           center={[31.9686, -99.9018]} // Center of Texas
           zoom={6}
           ref={mapRef}
@@ -376,7 +407,7 @@ const TexasMap: React.FC<TexasMapProps> = ({
           </CircleMarker>
           );
         })}
-      </MapContainer_Styled>
+      </MapContainerStyled>
       </MapSection>
 
       {/* Right Sidebar Panel */}
