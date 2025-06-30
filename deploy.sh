@@ -4,9 +4,6 @@
 
 echo "🚀 Starting OmniVapor deployment to GitHub Pages..."
 
-# Navigate to the React app directory
-cd BuildingMap/pfluger-map
-
 # Install dependencies if node_modules doesn't exist
 if [ ! -d "node_modules" ]; then
     echo "📦 Installing dependencies..."

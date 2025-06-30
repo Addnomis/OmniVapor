@@ -1,108 +1,192 @@
 # OmniVapor
 
-A comprehensive graphics and mapping toolkit featuring the OmniMap SDK, building mapping tools, and various rendering examples.
+**Interactive 360° Architectural Portfolio with Dome Projection Capabilities**
 
-## Project Structure
+A comprehensive React-based mapping application showcasing Pfluger Architects' portfolio with immersive 360° viewing capabilities, built on the OmniMap SDK foundation.
 
-### Core Components
+## 🌐 Live Demo
 
-- **OmniMap SDK** (`Sdk/`) - Complete SDK with libraries, documentation, and resources
-- **Source Code** (`SourceCode/`) - Full source implementation with dependencies
-- **Examples** (`Examples/`) - Demonstration applications and samples
-- **Building Map** (`BuildingMap/`) - Interactive mapping application for architectural projects
+**https://addnomis.github.io/OmniVapor/**
 
-## Features
+## ✨ Features
 
-### OmniMap SDK
-- Cross-platform graphics rendering (DirectX 9/10/11, OpenGL)
-- Dome and projection mapping capabilities
-- Comprehensive documentation and examples
-- Multiple Visual Studio project configurations
+### Interactive Map
+- **Texas-focused architectural project visualization** with 61 projects
+- **Market-based filtering** (PreK-12, Higher Education, CTE & STEM, etc.)
+- **Real-time statistics** and project analytics
+- **Responsive design** with modern dark theme
 
-### Building Map Application
-- Interactive React-based mapping interface
-- Texas-focused architectural project visualization
-- Real-time project data scraping and processing
-- Responsive design with modern UI components
+### 360° Immersive Viewing
+- **True 3D spherical projection** using Three.js WebGL
+- **Natural camera controls** without gimbal lock
+- **Hardware-accelerated rendering** at 60fps
+- **11 sample equirectangular images** with random assignment
 
-### Examples & Demos
-- DirectX 10/11 HLSL examples
-- OpenGL rendering samples
-- Multi-animation systems
-- Dome-enabled applications
+### Technical Foundation
+- **OmniMap SDK integration ready** for dome projection systems
+- **Modern React 19** with TypeScript
+- **D3.js visualization** for interactive mapping
+- **Styled Components** for maintainable CSS
 
-## Quick Start
+## 🚀 Quick Start
 
 ### Prerequisites
-- Visual Studio 2008/2013/2019+ (for C++ components)
-- Node.js and npm (for React components)
-- Python 3.x (for data processing tools)
+- Node.js 18+
+- Modern web browser with WebGL support
 
-### Building the SDK
-1. Open `SourceCode/Projects/Win/VS2013/OmniMap.sln`
-2. Build the solution for your target platform (32-bit/64-bit)
-3. Libraries will be generated in `Sdk/lib/`
-
-### Running the Building Map
+### Development
 ```bash
-cd BuildingMap/pfluger-map
+# Clone the repository
+git clone https://github.com/Addnomis/OmniVapor.git
+cd OmniVapor
+
+# Install dependencies
 npm install
+
+# Start development server
 npm start
 ```
 
-### Running Examples
-Navigate to any example directory and open the solution file:
+Visit `http://localhost:3000` to view the application.
+
+### Production Build
 ```bash
-cd Examples/Direct3D/Direct3D10/BasicHLSL10
-# Open BasicHLSL10_2003.sln in Visual Studio
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-## Documentation
+## 📁 Project Structure
 
-- **SDK Documentation**: `Sdk/Documentation/`
-- **API Reference**: `Sdk/Documentation/ClassDocs/html/`
-- **Application Architecture**: `BuildingMap/docs/APPLICATION_ARCHITECTURE.md`
-- **Development Guidelines**: `BuildingMap/docs/DEVELOPMENT_GUIDELINES.md`
+```
+OmniVapor/
+├── public/                 # Static assets and 360° images
+│   ├── images/360_Images/ # Sample equirectangular images
+│   └── final_pfluger_projects.json
+├── src/
+│   ├── components/        # React components
+│   │   ├── TexasMap.tsx   # Main map with sidebar UI
+│   │   ├── Simple360Viewer.tsx # Three.js 360° viewer
+│   │   └── ProjectDetailPanel.tsx # Project details
+│   ├── types/            # TypeScript definitions
+│   └── utils/            # Utility functions
+├── Sdk/                  # OmniMap SDK (C++)
+├── SourceCode/           # OmniMap source implementation
+├── Examples/             # DirectX/OpenGL examples
+└── deploy.sh            # Deployment script
+```
 
-## Dependencies
+## 🎯 Core Components
 
-### C++ Components
-- DirectX SDK (June 2010 or later)
-- OpenGL libraries
-- GLEW 1.9.0 (included)
-- Lua scripting engine (included)
-- Various graphics utilities (included)
+### TexasMap.tsx
+- Interactive D3.js map with project markers
+- Left sidebar with filters, statistics, and legend
+- Market-based color coding and size scaling
 
-### React Application
-- React 18+
-- TypeScript
-- Modern web browser with SVG support
+### Simple360Viewer.tsx
+- Three.js WebGL spherical projection
+- Equirectangular texture mapping
+- Mouse/keyboard controls with natural movement
 
-### Python Tools
-- Python 3.x
-- Required packages listed in `BuildingMap/requirements.txt`
+### ProjectDetailPanel.tsx
+- Right sidebar with project information
+- 360° viewing integration
+- Responsive design
 
-## License
+## 🔧 Technical Stack
 
-Please refer to individual component licenses:
-- OmniMap SDK: See `Sdk/Documentation/license.rtf`
-- SpoutSDK: See `SourceCode/Dependencies/SpoutSDK/licence.txt`
-- GLEW: See `SourceCode/Dependencies/Glew-1.9.0/LICENSE.txt`
+### Frontend
+- **React 19** with TypeScript
+- **Three.js** for 3D rendering
+- **D3.js** for data visualization
+- **Styled Components** for styling
+- **React Leaflet** for mapping
 
-## Contributing
+### Graphics Foundation
+- **OmniMap SDK** (C++) for dome projection
+- **DirectX 9/10/11** and **OpenGL** support
+- **GLEW**, **Lua scripting**, **SpoutSDK**
 
-This project contains multiple components with different technologies:
-1. Follow the development guidelines in `BuildingMap/docs/DEVELOPMENT_GUIDELINES.md`
-2. Ensure all builds pass before submitting changes
-3. Test across different platforms when possible
+### Deployment
+- **GitHub Pages** with automatic CI/CD
+- **GitHub Actions** for build and deploy
+- **Optimized production builds**
 
-## Support
+## 📊 Project Data
 
-For technical support and questions:
-- Check the documentation in `Sdk/Documentation/`
-- Review example implementations in `Examples/`
-- Consult the application architecture documentation
+The application showcases **61 architectural projects** across Texas and Louisiana:
+- **PreK-12 Education**: 37 projects
+- **Higher Education**: 18 projects  
+- **CTE & STEM**: 2 projects
+- **Athletics, Fine Arts, Other**: 4 projects
+
+Each project includes:
+- Geographic coordinates
+- Market classification
+- Project details (size, cost, year)
+- 360° architectural imagery
+
+## 🌐 Deployment
+
+### Automatic Deployment
+Every push to `main` branch triggers automatic deployment via GitHub Actions.
+
+### Manual Deployment
+```bash
+./deploy.sh
+```
+
+### GitHub Pages Configuration
+- Repository: https://github.com/Addnomis/OmniVapor
+- Branch: `gh-pages`
+- URL: https://addnomis.github.io/OmniVapor/
+
+## 🎮 Usage
+
+1. **Explore the Map**: Click and drag to navigate the Texas map
+2. **Filter Projects**: Use the left sidebar to filter by market type
+3. **View Details**: Click any project marker to see details in the right sidebar
+4. **Experience 360°**: Click "Experience in 360°" for immersive viewing
+5. **Navigate 360°**: Drag to look around, scroll to zoom, ESC to exit
+
+## 🔮 OmniMap Integration
+
+The project is architected for seamless integration with dome projection systems:
+- **Sphere geometry algorithms** match OmniMap's implementation
+- **Equirectangular mapping** compatible with dome warping
+- **Modular architecture** for easy OmniMap bridge integration
+
+## 📈 Performance
+
+- **255KB gzipped bundle** with Three.js included
+- **60fps WebGL rendering** with hardware acceleration
+- **Optimized image loading** with progress tracking
+- **Responsive design** for all screen sizes
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project combines multiple components with different licenses:
+- **React Application**: MIT License
+- **OmniMap SDK**: See `Sdk/Documentation/license.rtf`
+- **SpoutSDK**: See `SourceCode/Dependencies/SpoutSDK/licence.txt`
+- **GLEW**: See `SourceCode/Dependencies/Glew-1.9.0/LICENSE.txt`
+
+## 🆘 Support
+
+- **Live Demo**: https://addnomis.github.io/OmniVapor/
+- **Documentation**: See `DEPLOYMENT.md` for deployment guide
+- **Issues**: GitHub Issues for bug reports and feature requests
 
 ---
 
-**Note**: This project combines legacy graphics SDK components with modern web technologies. Some components may require specific versions of development tools or dependencies. 
+**Built with ❤️ for immersive architectural visualization** 
