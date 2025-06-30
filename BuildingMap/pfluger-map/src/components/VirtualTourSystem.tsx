@@ -1,4 +1,4 @@
-// VirtualTourSystem.tsx - 360° Virtual Tour System for Architectural Projects
+// VirtualTourSystem.tsx - 360° Virtual Tour System for Single Dome Multi-User Experience
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import styled from 'styled-components';
@@ -38,26 +38,29 @@ interface TourState {
   timeRemaining: number;
 }
 
-interface MultiUserState {
+interface SingleDomeUserState {
   sessionId: string;
-  isHost: boolean;
-  connectedUsers: number;
+  currentPresenter: string | null;
+  audienceCount: number;
   userList: Array<{
     id: string;
     name: string;
-    isHost: boolean;
+    role: 'presenter' | 'audience';
+    device: 'dome_controller' | 'tablet' | 'phone' | 'kiosk';
     joinedAt: number;
   }>;
-  syncEnabled: boolean;
-  lastSyncTimestamp: number;
+  presenterMode: boolean;
+  audienceInteraction: boolean; // Allow audience to suggest next project
+  lastInteractionTimestamp: number;
 }
 
-interface SyncMessage {
-  type: 'tour_start' | 'tour_pause' | 'tour_resume' | 'waypoint_change' | 'user_join' | 'user_leave' | 'sync_request';
+interface DomeInteractionMessage {
+  type: 'presenter_change' | 'tour_control' | 'audience_suggestion' | 'user_join' | 'user_leave';
   data: any;
   timestamp: number;
   userId: string;
-  sessionId: string;
+  userRole: 'presenter' | 'audience';
+  deviceType: string;
 }
 
 const TourContainer = styled.div<{ isDomeMode: boolean }>`
@@ -194,7 +197,7 @@ const HintItem = styled.div`
   }
 `;
 
-const MultiUserPanel = styled.div<{ isDomeMode: boolean }>`
+const DomeUserPanel = styled.div<{ isDomeMode: boolean }>`
   position: absolute;
   top: ${props => props.isDomeMode ? '40px' : '20px'};
   right: ${props => props.isDomeMode ? '40px' : '20px'};
@@ -211,35 +214,35 @@ const UserList = styled.div`
   margin-bottom: 15px;
 `;
 
-const UserItem = styled.div<{ isHost: boolean }>`
+const UserItem = styled.div<{ isPresenter: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 5px 0;
   font-size: 12px;
-  color: ${props => props.isHost ? '#f39c12' : '#ecf0f1'};
+  color: ${props => props.isPresenter ? '#f39c12' : '#ecf0f1'};
 `;
 
-const SyncStatus = styled.div<{ synced: boolean }>`
+const PresenterStatus = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: ${props => props.synced ? 'rgba(46, 204, 113, 0.2)' : 'rgba(231, 76, 60, 0.2)'};
-  border: 1px solid ${props => props.synced ? '#2ecc71' : '#e74c3c'};
+  background: ${props => props.active ? 'rgba(46, 204, 113, 0.2)' : 'rgba(231, 76, 60, 0.2)'};
+  border: 1px solid ${props => props.active ? '#2ecc71' : '#e74c3c'};
   border-radius: 6px;
   font-size: 11px;
   margin-bottom: 10px;
 `;
 
-const SyncControls = styled.div`
+const DomeControls = styled.div`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 `;
 
-const SyncButton = styled.button<{ variant?: 'sync' | 'host' }>`
-  background: ${props => props.variant === 'host' ? '#f39c12' : '#3498db'};
+const DomeButton = styled.button<{ variant?: 'presenter' | 'audience' }>`
+  background: ${props => props.variant === 'presenter' ? '#f39c12' : '#3498db'};
   color: white;
   border: none;
   padding: 6px 12px;
@@ -283,35 +286,37 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
     distance: 0.8
   });
 
-  const [multiUserState, setMultiUserState] = useState<MultiUserState>({
+  const [domeUserState, setDomeUserState] = useState<SingleDomeUserState>({
     sessionId: '',
-    isHost: false,
-    connectedUsers: 1,
+    currentPresenter: null,
+    audienceCount: 0,
     userList: [],
-    syncEnabled: false,
-    lastSyncTimestamp: 0
+    presenterMode: false,
+    audienceInteraction: true,
+    lastInteractionTimestamp: 0
   });
 
   const tourTimerRef = useRef<NodeJS.Timeout | null>(null);
   const progressTimerRef = useRef<NodeJS.Timeout | null>(null);
   const syncIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  const websocketRef = useRef<WebSocket | null>(null);
 
-  // Initialize multi-user session
+  // Initialize single dome session
   useEffect(() => {
-    const sessionId = `tour-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const sessionId = `dome-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     const userId = `user-${Math.random().toString(36).substr(2, 9)}`;
     
-    setMultiUserState(prev => ({
+    setDomeUserState((prev: SingleDomeUserState) => ({
       ...prev,
       sessionId,
+      currentPresenter: userId,
       userList: [{
         id: userId,
-        name: 'You',
-        isHost: true,
+        name: 'Dome Controller',
+        role: 'presenter' as const,
+        device: 'dome_controller' as const,
         joinedAt: Date.now()
       }],
-      isHost: true
+      presenterMode: true
     }));
   }, []);
 
@@ -343,103 +348,43 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
     }));
   }, [projects, tourDuration]);
 
-  // Multi-user sync functions
-  const broadcastSyncMessage = useCallback((message: Omit<SyncMessage, 'timestamp' | 'userId' | 'sessionId'>) => {
-    if (!multiUserState.syncEnabled || !websocketRef.current) return;
+  // Single dome interaction functions
+  const broadcastDomeMessage = useCallback((message: Omit<DomeInteractionMessage, 'timestamp' | 'userId' | 'userRole' | 'deviceType'>) => {
+    const currentUser = domeUserState.userList[0];
+    if (!currentUser) return;
 
-    const syncMessage: SyncMessage = {
+    const domeMessage: DomeInteractionMessage = {
       ...message,
       timestamp: Date.now(),
-      userId: multiUserState.userList[0]?.id || '',
-      sessionId: multiUserState.sessionId
+      userId: currentUser.id,
+      userRole: currentUser.role,
+      deviceType: currentUser.device
     };
 
-    if (websocketRef.current.readyState === WebSocket.OPEN) {
-      websocketRef.current.send(JSON.stringify(syncMessage));
-    }
+    // TODO: Broadcast to connected devices (tablets, phones, kiosks) in dome
+    // domeService.broadcastToDevices(domeMessage);
+  }, [domeUserState.userList]);
 
-    // TODO: Integrate with dome service for multi-user broadcasting
-    // domeService.broadcastToAllUsers(syncMessage);
-  }, [multiUserState.syncEnabled, multiUserState.sessionId, multiUserState.userList, isDomeMode]);
-
-  const handleSyncMessage = useCallback((message: SyncMessage) => {
-    // Ignore messages from self
-    if (message.userId === multiUserState.userList[0]?.id) return;
-
-    setMultiUserState(prev => ({ ...prev, lastSyncTimestamp: message.timestamp }));
-
-    switch (message.type) {
-      case 'tour_start':
-        setTourState(prev => ({
-          ...prev,
-          isActive: true,
-          isPlaying: true,
-          currentIndex: message.data.currentIndex || 0,
-          progress: 0,
-          timeRemaining: tourDuration
-        }));
-        break;
-
-      case 'tour_pause':
-        setTourState(prev => ({ ...prev, isPlaying: message.data.isPlaying }));
-        break;
-
-      case 'waypoint_change':
-        setTourState(prev => ({
-          ...prev,
-          currentIndex: message.data.currentIndex,
-          progress: message.data.progress || 0,
-          timeRemaining: message.data.timeRemaining || tourDuration
-        }));
-        break;
-
-      case 'user_join':
-        setMultiUserState(prev => ({
-          ...prev,
-          connectedUsers: prev.connectedUsers + 1,
-          userList: [...prev.userList, message.data.user]
-        }));
-        break;
-
-      case 'user_leave':
-        setMultiUserState(prev => ({
-          ...prev,
-          connectedUsers: Math.max(1, prev.connectedUsers - 1),
-          userList: prev.userList.filter(user => user.id !== message.data.userId)
-        }));
-        break;
-    }
-  }, [multiUserState.userList, tourDuration]);
-
-  const enableSync = useCallback(() => {
-    setMultiUserState(prev => ({ ...prev, syncEnabled: true }));
-    
-    // TODO: In a real implementation, this would connect to a WebSocket server
-    // and integrate with dome service for multi-user sync
-    // if (isDomeMode) {
-    //   domeService.enableMultiUserSync(multiUserState.sessionId);
-    //   domeService.onEvent('syncMessage', handleSyncMessage);
-    // }
-  }, [multiUserState.sessionId, isDomeMode, handleSyncMessage]);
-
-  const becomeHost = useCallback(() => {
-    setMultiUserState(prev => ({
-      ...prev,
-      isHost: true,
-      userList: prev.userList.map(user => 
-        user.id === prev.userList[0]?.id 
-          ? { ...user, isHost: true }
-          : { ...user, isHost: false }
-      )
+  const enablePresenterMode = useCallback(() => {
+    setDomeUserState((prev: SingleDomeUserState) => ({ 
+      ...prev, 
+      presenterMode: true 
     }));
+    
+    // TODO: Enable presenter mode in dome service
+    // if (isDomeMode) {
+    //   domeService.enablePresenterMode(domeUserState.sessionId);
+    // }
+  }, [domeUserState.sessionId]);
 
-    broadcastSyncMessage({
-      type: 'user_join',
-      data: { user: { ...multiUserState.userList[0], isHost: true } }
-    });
-  }, [multiUserState.userList, broadcastSyncMessage]);
+  const toggleAudienceInteraction = useCallback(() => {
+    setDomeUserState((prev: SingleDomeUserState) => ({
+      ...prev,
+      audienceInteraction: !prev.audienceInteraction
+    }));
+  }, []);
 
-  // Handle tour progression with sync
+  // Handle tour progression
   const startTour = useCallback(() => {
     if (tourState.waypoints.length === 0) return;
 
@@ -457,14 +402,14 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
       domeService.setViewMode('tour');
     }
 
-    // Broadcast to other users
-    if (multiUserState.syncEnabled && multiUserState.isHost) {
-      broadcastSyncMessage({
-        type: 'tour_start',
-        data: { currentIndex: 0 }
+    // Broadcast to connected devices in dome
+    if (domeUserState.presenterMode && domeUserState.currentPresenter) {
+      broadcastDomeMessage({
+        type: 'tour_control',
+        data: { action: 'start', currentIndex: 0 }
       });
     }
-  }, [tourState.waypoints, tourDuration, isDomeMode, multiUserState.syncEnabled, multiUserState.isHost, broadcastSyncMessage]);
+  }, [tourState.waypoints, tourDuration, isDomeMode, domeUserState.presenterMode, domeUserState.currentPresenter, broadcastDomeMessage]);
 
   const stopTour = useCallback(() => {
     if (tourTimerRef.current) clearInterval(tourTimerRef.current);
@@ -489,17 +434,17 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
     setTourState(prev => {
       const newPlaying = !prev.isPlaying;
       
-      // Broadcast pause/resume to other users
-      if (multiUserState.syncEnabled && multiUserState.isHost) {
-        broadcastSyncMessage({
-          type: 'tour_pause',
-          data: { isPlaying: newPlaying }
+      // Broadcast pause/resume to connected devices
+      if (domeUserState.presenterMode && domeUserState.currentPresenter) {
+        broadcastDomeMessage({
+          type: 'tour_control',
+          data: { action: newPlaying ? 'resume' : 'pause' }
         });
       }
       
       return { ...prev, isPlaying: newPlaying };
     });
-  }, [multiUserState.syncEnabled, multiUserState.isHost, broadcastSyncMessage]);
+  }, [domeUserState.presenterMode, domeUserState.currentPresenter, broadcastDomeMessage]);
 
   const nextProject = useCallback(() => {
     setTourState(prev => {
@@ -518,13 +463,13 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
         timeRemaining: tourDuration
       };
 
-      // Broadcast waypoint change to other users
-      if (multiUserState.syncEnabled && multiUserState.isHost) {
-        broadcastSyncMessage({
-          type: 'waypoint_change',
+      // Broadcast waypoint change to connected devices
+      if (domeUserState.presenterMode && domeUserState.currentPresenter) {
+        broadcastDomeMessage({
+          type: 'tour_control',
           data: {
+            action: 'next',
             currentIndex: nextIndex,
-            progress: 0,
             timeRemaining: tourDuration
           }
         });
@@ -532,7 +477,7 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
 
       return newState;
     });
-  }, [tourDuration, stopTour, multiUserState.syncEnabled, multiUserState.isHost, broadcastSyncMessage]);
+  }, [tourDuration, stopTour, domeUserState.presenterMode, domeUserState.currentPresenter, broadcastDomeMessage]);
 
   const previousProject = useCallback(() => {
     setTourState(prev => {
@@ -545,13 +490,13 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
         timeRemaining: tourDuration
       };
 
-      // Broadcast waypoint change to other users
-      if (multiUserState.syncEnabled && multiUserState.isHost) {
-        broadcastSyncMessage({
-          type: 'waypoint_change',
+      // Broadcast waypoint change to connected devices
+      if (domeUserState.presenterMode && domeUserState.currentPresenter) {
+        broadcastDomeMessage({
+          type: 'tour_control',
           data: {
+            action: 'previous',
             currentIndex: prevIndex,
-            progress: 0,
             timeRemaining: tourDuration
           }
         });
@@ -559,7 +504,7 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
 
       return newState;
     });
-  }, [tourDuration, multiUserState.syncEnabled, multiUserState.isHost, broadcastSyncMessage]);
+  }, [tourDuration, domeUserState.presenterMode, domeUserState.currentPresenter, broadcastDomeMessage]);
 
   // Auto-advance timer
   useEffect(() => {
@@ -620,30 +565,30 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
     if (!isDomeMode) return;
 
     const handleDomeInteraction = (event: any) => {
-      // Only handle gesture controls for multi-user sync compatibility
+      // Only handle gesture controls, presenter controls tour
+      const isPresenter = domeUserState.currentPresenter === domeUserState.userList[0]?.id;
+      
       if (event.type === 'gesture' && event.data === 'swipe_left') {
-        // Only host can control tour in sync mode
-        if (!multiUserState.syncEnabled || multiUserState.isHost) {
+        if (!domeUserState.presenterMode || isPresenter) {
           nextProject();
         }
       } else if (event.type === 'gesture' && event.data === 'swipe_right') {
-        // Only host can control tour in sync mode
-        if (!multiUserState.syncEnabled || multiUserState.isHost) {
+        if (!domeUserState.presenterMode || isPresenter) {
           previousProject();
         }
       } else if (event.type === 'gesture' && event.data === 'tap') {
-        // Only host can control tour in sync mode
-        if (!multiUserState.syncEnabled || multiUserState.isHost) {
+        if (!domeUserState.presenterMode || isPresenter) {
           pauseTour();
         }
       }
     };
 
     domeService.onEvent('domeInteraction', handleDomeInteraction);
-  }, [isDomeMode, nextProject, previousProject, pauseTour, multiUserState.syncEnabled, multiUserState.isHost]);
+  }, [isDomeMode, nextProject, previousProject, pauseTour, domeUserState.presenterMode, domeUserState.currentPresenter, domeUserState.userList]);
 
   const currentWaypoint = tourState.waypoints[tourState.currentIndex];
   const currentProjectData = currentWaypoint?.project || currentProject;
+  const isPresenter = domeUserState.currentPresenter === domeUserState.userList[0]?.id;
 
   if (!currentProjectData?.domeMetadata?.equirectangularImage) {
     return (
@@ -698,106 +643,107 @@ const VirtualTourSystem: React.FC<VirtualTourSystemProps> = ({
           <HintItem>👈 Swipe left for next</HintItem>
           <HintItem>👉 Swipe right for previous</HintItem>
           <HintItem>👆 Tap to pause/play</HintItem>
-          {multiUserState.syncEnabled && !multiUserState.isHost && (
-            <HintItem>🔒 Host controls tour</HintItem>
+          {domeUserState.presenterMode && !isPresenter && (
+            <HintItem>🎯 Presenter controls tour</HintItem>
           )}
         </InteractionHints>
       )}
 
-      <MultiUserPanel isDomeMode={isDomeMode}>
+      <DomeUserPanel isDomeMode={isDomeMode}>
         <div style={{ marginBottom: '10px', fontSize: '14px', fontWeight: '600' }}>
-          Multi-User Session
+          Single Dome Session
         </div>
         
-        <SyncStatus synced={multiUserState.syncEnabled}>
-          {multiUserState.syncEnabled ? (
-            <>🟢 Synchronized ({multiUserState.connectedUsers} users)</>
+        <PresenterStatus active={domeUserState.presenterMode}>
+          {domeUserState.presenterMode ? (
+            <>🎯 Presenter Mode Active</>
           ) : (
-            <>🔴 Not synchronized</>
+            <>👥 Collaborative Mode</>
           )}
-        </SyncStatus>
+        </PresenterStatus>
 
         <UserList>
-          {multiUserState.userList.map(user => (
-            <UserItem key={user.id} isHost={user.isHost}>
-              {user.isHost ? '👑' : '👤'} {user.name}
-              {user.isHost && ' (Host)'}
+          {domeUserState.userList.map(user => (
+            <UserItem key={user.id} isPresenter={user.role === 'presenter'}>
+              {user.role === 'presenter' ? '🎯' : '👤'} {user.name}
+              {user.role === 'presenter' && ' (Presenter)'}
             </UserItem>
           ))}
+          <UserItem isPresenter={false}>
+            👥 Audience: {domeUserState.audienceCount} users
+          </UserItem>
         </UserList>
 
-        <SyncControls>
-          {!multiUserState.syncEnabled ? (
-            <SyncButton onClick={enableSync}>
-              Enable Sync
-            </SyncButton>
+        <DomeControls>
+          {!domeUserState.presenterMode ? (
+            <DomeButton variant="presenter" onClick={enablePresenterMode}>
+              Enable Presenter Mode
+            </DomeButton>
           ) : (
-            !multiUserState.isHost && (
-              <SyncButton variant="host" onClick={becomeHost}>
-                Become Host
-              </SyncButton>
-            )
+            <DomeButton onClick={toggleAudienceInteraction}>
+              {domeUserState.audienceInteraction ? 'Disable' : 'Enable'} Audience Input
+            </DomeButton>
           )}
-        </SyncControls>
-      </MultiUserPanel>
+        </DomeControls>
+      </DomeUserPanel>
 
-              <TourControls isDomeMode={isDomeMode}>
-          {!tourState.isActive ? (
+      <TourControls isDomeMode={isDomeMode}>
+        {!tourState.isActive ? (
+          <ControlButton 
+            variant="primary" 
+            onClick={startTour}
+            disabled={domeUserState.presenterMode && !isPresenter}
+          >
+            ▶️ Start Tour
+          </ControlButton>
+        ) : (
+          <>
             <ControlButton 
-              variant="primary" 
-              onClick={startTour}
-              disabled={multiUserState.syncEnabled && !multiUserState.isHost}
+              onClick={previousProject}
+              disabled={domeUserState.presenterMode && !isPresenter}
             >
-              ▶️ Start Tour
+              ⏮️ Previous
             </ControlButton>
-          ) : (
-            <>
-              <ControlButton 
-                onClick={previousProject}
-                disabled={multiUserState.syncEnabled && !multiUserState.isHost}
-              >
-                ⏮️ Previous
-              </ControlButton>
-              
-              <ControlButton 
-                onClick={pauseTour}
-                disabled={multiUserState.syncEnabled && !multiUserState.isHost}
-              >
-                {tourState.isPlaying ? '⏸️ Pause' : '▶️ Play'}
-              </ControlButton>
-              
-              <ProgressBar>
-                <ProgressFill progress={tourState.progress} />
-              </ProgressBar>
             
-                          <ControlButton 
-                onClick={nextProject}
-                disabled={multiUserState.syncEnabled && !multiUserState.isHost}
-              >
-                ⏭️ Next
-              </ControlButton>
-              
-              <ControlButton 
-                variant="danger" 
-                onClick={stopTour}
-                disabled={multiUserState.syncEnabled && !multiUserState.isHost}
-              >
-                ⏹️ Stop
-              </ControlButton>
-            </>
-          )}
-          
-          {multiUserState.syncEnabled && !multiUserState.isHost && (
-            <div style={{ 
-              fontSize: '11px', 
-              color: '#f39c12', 
-              textAlign: 'center',
-              marginTop: '5px'
-            }}>
-              🔒 Host is controlling the tour
-            </div>
-          )}
-        </TourControls>
+            <ControlButton 
+              onClick={pauseTour}
+              disabled={domeUserState.presenterMode && !isPresenter}
+            >
+              {tourState.isPlaying ? '⏸️ Pause' : '▶️ Play'}
+            </ControlButton>
+            
+            <ProgressBar>
+              <ProgressFill progress={tourState.progress} />
+            </ProgressBar>
+            
+            <ControlButton 
+              onClick={nextProject}
+              disabled={domeUserState.presenterMode && !isPresenter}
+            >
+              ⏭️ Next
+            </ControlButton>
+            
+            <ControlButton 
+              variant="danger" 
+              onClick={stopTour}
+              disabled={domeUserState.presenterMode && !isPresenter}
+            >
+              ⏹️ Stop
+            </ControlButton>
+          </>
+        )}
+        
+        {domeUserState.presenterMode && !isPresenter && (
+          <div style={{ 
+            fontSize: '11px', 
+            color: '#f39c12', 
+            textAlign: 'center',
+            marginTop: '5px'
+          }}>
+            🎯 Presenter is controlling the tour
+          </div>
+        )}
+      </TourControls>
     </TourContainer>
   );
 };
